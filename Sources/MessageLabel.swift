@@ -24,7 +24,7 @@
 
 import UIKit
 
-open class MessageLabel: UILabel {
+open class MessageLabel: UITextView {
 
     // MARK: - Properties
 
@@ -35,9 +35,9 @@ open class MessageLabel: UILabel {
         }
     }
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        numberOfLines = 0
+    public override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        isSelectable = true
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -47,7 +47,7 @@ open class MessageLabel: UILabel {
     // MARK: - Methods
 
     open override func draw(_ rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
+        super.draw(rect)
     }
 
 }
